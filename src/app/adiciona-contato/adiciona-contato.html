@@ -1,0 +1,15 @@
+<h1>Agenda</h1>
+
+<form>
+    <div>
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" #nm>
+    </div>
+    <div>
+        <label for="aniv">Aniversario</label>
+        <input type="date" name="aniv" id="aniv" #an>
+    </div>
+    <div>
+        <input type="button" value="Adicionar" (click)="adicionar(nm.value, an.value, '')">
+    </div>
+</form>
