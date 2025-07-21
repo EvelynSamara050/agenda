@@ -9,6 +9,15 @@
         <label for="aniv">Aniversario</label>
         <input type="date" name="aniv" id="aniv" #an>
     </div>
+     <div>
+        <label for="tipo">Tipo</label>
+        <select type="date" name="aniv" id="tipo" #tipo>
+            <option value="Amigo">Amigo(a)</option>
+            <option value="Familia">Familia</option>
+            <option value="Trabalho">Trabalho</option>
+            <option value="Outro">Outro</option>
+        </select>
+    </div>
     <div>
         <input type="button" value="Adicionar" (click)="adicionar(nm.value, an.value, '')">
     </div>
