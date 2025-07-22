@@ -14,7 +14,7 @@ export class AdicionaContato {
   constructor() {
     this.contatos = []
   }
-  adicionar(nm: string, an: string, tipo: string, telefone: string, email: string) {
+  adicionar(nm: string, telefone: string, email: string, an: string, tipo: string,) {
     let aniversario = new Date(an)
     const c = new Contato(nm, telefone, email, aniversario, tipo,)
     this.contatos.push(c)
