@@ -11,13 +11,13 @@ import { CommonModule } from '@angular/common';
 export class AdicionaContato {
   contatos: Contato[]
 
-constructor(){
-  this.contatos = []
-}
-adicionar(nm:string, an:string, tipo: string, telefone: string, email: string){
-  let aniversario = new Date(an)
-  const c = new Contato(nm, telefone, email, aniversario, tipo,)
-  this.contatos.push(c)
-  
-}
+  constructor() {
+    this.contatos = []
+  }
+  adicionar(nm: string, an: string, tipo: string, telefone: string, email: string) {
+    let aniversario = new Date(an)
+    const c = new Contato(nm, telefone, email, aniversario, tipo,)
+    this.contatos.push(c)
+
+  }
 }

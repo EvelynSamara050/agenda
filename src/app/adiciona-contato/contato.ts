@@ -5,17 +5,17 @@ export class Contato {
   private telefone: string
   private email: string
   private aniversario: Date
-    private tipo: string
+  private tipo: string
 
-constructor(nm: string,  tel: string, email: string, an:Date, tipo:string,){
-  this.nome = nm 
-  this.telefone = tel
-  this.email = email
-  this.aniversario = an
-  this.tipo = tipo
-  
-}
-// Métodos para acessar
+  constructor(nm: string, tel: string, email: string, an: Date, tipo: string,) {
+    this.nome = nm
+    this.telefone = tel
+    this.email = email
+    this.aniversario = an
+    this.tipo = tipo
+
+  }
+  // Métodos para acessar
   nomeDoContato(): string {
     return this.nome;
   }
@@ -35,8 +35,7 @@ constructor(nm: string,  tel: string, email: string, an:Date, tipo:string,){
   tipoDeContato(): string {
     return this.tipo;
   }
-
-  // Métodos para modificar
+  
   mudarNome(novoNome: string): void {
     this.nome = novoNome;
   }

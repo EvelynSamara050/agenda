@@ -17,7 +17,7 @@
         <label for="aniv">Aniversario</label>
         <input type="date" name="aniv" id="aniv" #an>
     </div>
-     <div>
+    <div>
         <label for="tipo">Tipo</label>
         <select id="tipo" #tipo>
             <option value="Amigo">Amigo(a)</option>
@@ -27,29 +27,29 @@
         </select>
     </div>
     <div>
-      <input type="button" value="Adicionar" 
-      (click)="adicionar(nm.value, tel.value, email.value, an.value, tipo.value)">
-  </div>
+        <input type="button" value="Adicionar"
+            (click)="adicionar(nm.value, tel.value, email.value, an.value, tipo.value)">
+    </div>
 </form>
 
 <!-- Tabela de contatos -->
 <table style="margin-top: 20px;">
-  <thead>
-    <tr>
-    <th>Nome</th>
-    <th>Telefone</th>
-    <th>Email</th>
-    <th>Aniversário</th>
-    <th>Tipo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let c of contatos">
-    <td>{{ c.nomeDoContato() }}</td>
-    <td>{{ c.telefoneDoContato() }}</td>
-    <td>{{ c.emailDoContato() }}</td>
-    <td>{{ c.aniversarioDoContato() | date:'dd/MM/yyyy' }}</td>
-    <td>{{ c.tipoDeContato() }}</td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Aniversário</th>
+            <th>Tipo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of contatos">
+            <td>{{ c.nomeDoContato() }}</td>
+            <td>{{ c.telefoneDoContato() }}</td>
+            <td>{{ c.emailDoContato() }}</td>
+            <td>{{ c.aniversarioDoContato() | date:'dd/MM/yyyy' }}</td>
+            <td>{{ c.tipoDeContato() }}</td>
+        </tr>
+    </tbody>
 </table>
