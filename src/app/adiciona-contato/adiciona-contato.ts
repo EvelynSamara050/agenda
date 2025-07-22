@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Contato } from './contato';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-adiciona-contato',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './adiciona-contato.html',
   styleUrl: './adiciona-contato.css'
 })
@@ -13,10 +14,10 @@ export class AdicionaContato {
 constructor(){
   this.contatos = []
 }
-adicionar(nm:string, an:string, tipo: string ){
+adicionar(nm:string, an:string, tipo: string, telefone: string, email: string){
   let aniversario = new Date(an)
-  const c = new Contato(nm, aniversario, tipo)
-
-  //consoooooolllle.log(c)
+  const c = new Contato(nm, telefone, email, aniversario, tipo,)
+  this.contatos.push(c)
+  
 }
 }
