@@ -1,55 +1,31 @@
-<h1>Agenda</h1>
 
-<form>
+<form [formGroup]="formContato">
     <div>
         <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome" #nm>
+        <input type="text" 
+              name="nome" id="nome" 
+              formControlName="nome">
     </div>
-    <div>
-        <label for="tel">Telefone</label>
-        <input type="text" name="tel" id="tel" #tel>
-    </div>
-    <div>
+      <div>
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" #email>
-    </div>
-    <div>
-        <label for="aniv">Aniversario</label>
-        <input type="date" name="aniv" id="aniv" #an>
+        <input type="email" 
+              name="email" id="email" 
+              formControlName="email">
     </div>
     <div>
         <label for="tipo">Tipo</label>
-        <select id="tipo" #tipo>
-            <option value="Amigo">Amigo(a)</option>
-            <option value="Familia">Familia</option>
-            <option value="Trabalho">Trabalho</option>
-            <option value="Outro">Outro</option>
+        <select name="nome" id="nome" 
+                formControlName="tipo">
+            @for (t of tipos; track t) {
+                <option [value]="t">{{t}}</option>
+            }
         </select>
     </div>
-    <div>
-        <input type="button" value="Adicionar"
-            (click)="adicionar(nm.value, tel.value, email.value, an.value, tipo.value)">
-    </div>
+    <input type="button" value="Adicionar"
+           [disabled]="formContato.invalid" 
+           (click)="adicionar()">
+           
+            <input type="button" value="Limpar"
+           (click)="limparCampos
+           ()">
 </form>
-
-<!-- Tabela de contatos -->
-<table style="margin-top: 20px;">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>Email</th>
-            <th>Aniversário</th>
-            <th>Tipo</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let c of contatos">
-            <td>{{ c.nomeDoContato() }}</td>
-            <td>{{ c.telefoneDoContato() }}</td>
-            <td>{{ c.emailDoContato() }}</td>
-            <td>{{ c.aniversarioDoContato() | date:'dd/MM/yyyy' }}</td>
-            <td>{{ c.tipoDeContato() }}</td>
-        </tr>
-    </tbody>
-</table>
