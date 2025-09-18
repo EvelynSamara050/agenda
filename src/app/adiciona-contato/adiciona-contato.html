@@ -12,6 +12,21 @@
               name="email" id="email" 
               formControlName="email">
     </div>
+     <div>
+    <label for="tel">Telefone</label>
+    <input type="tel" id="tel" formControlName="tel">
+    <div *ngIf="formContato.get('tel')?.invalid && formContato.get('tel')?.touched">
+      <small *ngIf="formContato.get('tel')?.errors?.['required']">Telefone é obrigatório.</small>
+      <small *ngIf="formContato.get('tel')?.errors?.['pattern']">Formato inválido. Use (84) 98888-7777.</small>
+    </div>
+     <div>
+    <label for="aniversario">Aniversário</label>
+    <input type="date" id="aniversario" formControlName="aniversario">
+    <div *ngIf="formContato.get('aniversario')?.invalid && formContato.get('aniversario')?.touched">
+      <small>O aniversário é obrigatório.</small>
+    </div>
+  </div>
+  </div>
     <div>
         <label for="tipo">Tipo</label>
         <select name="nome" id="nome" 
@@ -29,3 +44,23 @@
            (click)="limparCampos
            ()">
 </form>
+<table>
+  @if (contatos.length != 0) {
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Telefone</th>
+      <th>Aniversário</th>
+      <th>Tipo</th>
+    </tr>
+  }
+  @for (pessoa of contatos; track pessoa) {
+    <tr>
+      <td>{{pessoa.nome}}</td>
+      <td>{{pessoa.email}}</td>
+      <td>{{pessoa.tel}}</td>
+      <td>{{pessoa.aniversario}}</td>
+      <td>{{pessoa.tipo}}</td>
+    </tr>
+  }
+</table>

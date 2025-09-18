@@ -16,11 +16,14 @@ export class AdicionaContato {
   formContato: FormGroup
 
   constructor(private fb: FormBuilder) {
-    //const telExp = new RegExp('^\(?\d{2}\)?\s?9\d{4}-?\d{4}s$')
+    // Expressão regular para validar telefone brasileiro
+    const telExp = /^\(?\d{2}\)?\s?9\d{4}-?\d{4}$/;
+
     this.formContato = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      tel: ['', [Validators.required]],
+      tel: ['', [Validators.required, Validators.pattern(telExp)]],
+      aniversario: ['', [Validators.required]],
       tipo: [TipoContato.AMIGO, [Validators.required]],
     })
     this.contatos = []
@@ -32,7 +35,9 @@ export class AdicionaContato {
      const novo = new Contato(dados.nome,
        dados.email,
        dados.tel,
+       dados.aniversario,
        this.getTipo(dados.tipo))
+       
      this.contatos.push(novo)
      console.log(this.contatos)
    }
@@ -41,6 +46,8 @@ export class AdicionaContato {
     this.formContato.reset({
       nome:'',
       email:'',
+      tel:'',
+      aniversario:'',
       tipo: TipoContato.AMIGO
     })
    }

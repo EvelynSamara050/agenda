@@ -4,7 +4,7 @@ import { AdicionaContato } from "./adiciona-contato/adiciona-contato";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AdicionaContato],
+  imports: [AdicionaContato],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

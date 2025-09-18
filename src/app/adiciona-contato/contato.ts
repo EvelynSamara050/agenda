@@ -10,12 +10,14 @@ export class Contato {
   nome: string;
   email: string;
   tel: string;  
+  aniversario: string;
   tipo: TipoContato;
 
-  constructor(nome: string, email: string, tel: string, tipo: TipoContato) {
+  constructor(nome: string, email: string, tel: string, aniv: string, tipo: TipoContato) {
     this.nome = nome;
     this.email = email;
     this.tel = tel;
+    this.aniversario = aniv
     this.tipo = tipo;
   }
 }
